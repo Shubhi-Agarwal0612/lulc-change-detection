@@ -57,7 +57,7 @@ Both models are trained with identical data splits, augmentation, and loss funct
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/lulc-change-detection.git
+git clone https://github.com/Shubhi-Agarwal0612/lulc-change-detection.git
 cd lulc-change-detection
 pip install -r requirements.txt
 ```

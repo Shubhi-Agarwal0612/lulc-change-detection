@@ -1,0 +1,34 @@
+# ──────────────────────────────────────────────────────────────
+# LULC Change Detection — Default Configuration
+# ──────────────────────────────────────────────────────────────
+
+# Data paths (update these to your local paths)
+data:
+  t1_path: "data/Aligned_2016_FINAL.tif"       # Pre-change image
+  t2_path: "data/Aligned_2025_MATCHED.tif"      # Post-change image
+  mask_path: "data/change_mask.tif"             # Ground truth binary mask
+  training_csv: "data/training_data.csv"        # Optional spectral signatures
+  output_dir: "outputs"
+
+# Model selection: "biunet", "snunet-ecam", or "siamunet-diff"
+model:
+  name: "snunet-ecam"
+  num_bands: 3          # 3 = RGB, 4 = RGB + NIR
+  num_classes: 2        # Binary change detection
+
+# Training
+training:
+  patch_size: 256       # Must be divisible by 16
+  stride: 128           # Overlap between patches
+  batch_size: 8         # Reduce to 4 if CUDA OOM
+  epochs: 100
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  num_workers: 2
+  early_stopping: 15    # Patience (epochs without improvement)
+
+# Inference
+inference:
+  stride_divisor: 2     # inf_stride = training.stride / this
+  threshold: 0.5        # Probability threshold for binary map
+  resolution_m: 3       # Pixel size in meters (PlanetScope = 3m)

@@ -1,0 +1,45 @@
+# Data (too large for git)
+data/*.tif
+data/*.csv
+data/*.tiff
+!data/README.md
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Outputs
+outputs/
+results/figures/*.png
+results/figures/*.tif
+!results/figures/.gitkeep
+!results/figures/visual_comparison.jpg
+!results/figures/snunet_training.jpg
+!results/figures/biunet_training.jpg
+results/*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+venv/
+env/
